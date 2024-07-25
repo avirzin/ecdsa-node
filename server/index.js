@@ -31,7 +31,7 @@ app.post("/send", (req, res) => {
 
     const sig = new Uint8Array(signature);
 
-    const publicKey = await secp.recoverPublicKey(hash, sig, recovery);
+    const publicKey =  secp.recoverPublicKey(hash, sig, recovery);
 
     if(toHex(publicKey) !== sender){
       res.status(400).send({ message: "signature no is valid" });
